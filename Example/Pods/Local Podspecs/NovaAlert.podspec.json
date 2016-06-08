@@ -1,8 +1,9 @@
 {
   "name": "NovaAlert",
-  "version": "0.0.1",
+  "version": "0.1",
   "license": {
-    "type": "MIT"
+    "type": "MIT",
+    "file": "LICENSE"
   },
   "homepage": "https://github.com/netizen01/NovaAlert",
   "authors": {
@@ -11,7 +12,7 @@
   "summary": "Another Alert Package. Because.",
   "source": {
     "git": "https://github.com/netizen01/NovaAlert.git",
-    "tag": "0.0.1"
+    "tag": "0.1"
   },
   "source_files": "Source/**/*.swift",
   "dependencies": {

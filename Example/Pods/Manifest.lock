@@ -1,6 +1,6 @@
 PODS:
   - Cartography (0.6.0)
-  - NovaAlert (0.0.1):
+  - NovaAlert (0.1):
     - Cartography (~> 0.6)
     - NovaCore (~> 0.1)
   - NovaCore (0.1)
@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
-  NovaAlert: 5c6507b5360525ee78d4fd3e796da04cb513fedf
+  NovaAlert: 9c167fd301ba31904d395cbbcac83be8d305601e
   NovaCore: 6c2ffd04ca4b6d08740851209a825987a6bead1b
 
 PODFILE CHECKSUM: e1fc352e4ce05a5b21fe5769cc2ed5d1c634e055
