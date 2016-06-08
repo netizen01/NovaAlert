@@ -1,0 +1,6 @@
+framework module Pods_NovaAlertDemo {
+  umbrella header "Pods-NovaAlertDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

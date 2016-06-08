@@ -1,0 +1,8 @@
+use_frameworks!
+
+target 'NovaAlertDemo' do
+    platform :ios, '8.4'
+	
+	pod 'NovaAlert', :path => '../'
+end
+

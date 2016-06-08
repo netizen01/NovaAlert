@@ -125,9 +125,6 @@ public class NovaAlert {
         viewController.alert = nil
     }
     
-    deinit {
-        print("deinit \(self.dynamicType)")
-    }
 }
 
 
@@ -250,9 +247,6 @@ public class NovaAlertViewController: UIViewController {
         hide()
     }
     
-    deinit {
-        print("deinit \(self.dynamicType)")
-    }
 }
 
 
@@ -423,15 +417,5 @@ public class NovaAlertView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    deinit {
-        print("deinit \(self.dynamicType)")
-    }
 }
-
-
-
-
-
-
-
 

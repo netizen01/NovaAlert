@@ -1,0 +1,6 @@
+framework module NovaAlert {
+  umbrella header "NovaAlert-umbrella.h"
+
+  export *
+  module * { export * }
+}
