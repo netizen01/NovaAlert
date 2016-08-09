@@ -15,7 +15,7 @@ public class NovaAlert {
             public var color: UIColor? = nil
             public var highlightColor: UIColor? = UIColor(white: 0.5, alpha: 0.5)
             public var textColor: UIColor? = nil
-            public var font: UIFont = .systemFontOfSize(15)
+            public var font: UIFont = .preferredFontForTextStyle(UIFontTextStyleBody)
         }
         
         public var alertBackgroundColor: UIColor? = nil
@@ -24,8 +24,8 @@ public class NovaAlert {
         public var alertTextPadding: UIEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         public var textSpacing: CGFloat = 12
         
-        public var titleFont: UIFont = .boldSystemFontOfSize(17)
-        public var messageFont: UIFont = .systemFontOfSize(13)
+        public var titleFont: UIFont = .preferredFontForTextStyle(UIFontTextStyleHeadline)
+        public var messageFont: UIFont = .preferredFontForTextStyle(UIFontTextStyleBody)
         
         public var titleColor: UIColor = .blackColor()
         public var messageColor: UIColor = .blackColor()
