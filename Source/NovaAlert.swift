@@ -291,6 +291,9 @@ public class NovaAlertView: UIView {
         titleLabel.textAlignment = .Center
         messageLabel.textAlignment = .Center
         
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.5
+        
         messageLabel.numberOfLines = 0
     }
     
@@ -312,6 +315,7 @@ public class NovaAlertView: UIView {
         
         titleLabel.textColor = theme.titleColor
         messageLabel.textColor = theme.messageColor
+        
         
         separator.backgroundColor = theme.separatorColor
         actionsSeparator.backgroundColor = theme.separatorColor
