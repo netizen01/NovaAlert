@@ -9,8 +9,8 @@ Pod::Spec.new do |spec|
                             :tag => spec.version.to_s }
     spec.source_files   = 'Source/**/*.swift'
     
-    spec.dependency     'NovaCore', '~> 0.1'
-    spec.dependency     'Cartography', '~> 0.6'
+    spec.dependency     'NovaCore'
+    spec.dependency     'Cartography'
 
     spec.ios.deployment_target  = '8.4'
 end
