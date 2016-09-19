@@ -12,5 +12,5 @@ Pod::Spec.new do |spec|
     spec.dependency     'NovaCore'
     spec.dependency     'Cartography'
 
-    spec.ios.deployment_target  = '8.4'
+    spec.ios.deployment_target  = '8.2'
 end
