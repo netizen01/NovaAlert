@@ -6,7 +6,7 @@ import UIKit
 import Cartography
 import NovaCore
 
-public class NovaAlert {
+open class NovaAlert {
     
     // Settings elements are typically common to all Alerts within an App
     public struct Theme {
@@ -15,7 +15,7 @@ public class NovaAlert {
             public var color: UIColor? = nil
             public var highlightColor: UIColor? = UIColor(white: 0.5, alpha: 0.5)
             public var textColor: UIColor? = nil
-            public var font: UIFont = .preferredFontForTextStyle(UIFontTextStyleBody)
+            public var font: UIFont = .preferredFont(forTextStyle: UIFontTextStyle.body)
         }
         
         public var alertBackgroundColor: UIColor? = nil
@@ -24,18 +24,18 @@ public class NovaAlert {
         public var alertTextPadding: UIEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         public var textSpacing: CGFloat = 12
         
-        public var titleFont: UIFont = .preferredFontForTextStyle(UIFontTextStyleHeadline)
-        public var messageFont: UIFont = .preferredFontForTextStyle(UIFontTextStyleBody)
+        public var titleFont: UIFont = .preferredFont(forTextStyle: UIFontTextStyle.headline)
+        public var messageFont: UIFont = .preferredFont(forTextStyle: UIFontTextStyle.body)
         
-        public var titleColor: UIColor = .blackColor()
-        public var messageColor: UIColor = .blackColor()
+        public var titleColor: UIColor = .black
+        public var messageColor: UIColor = .black
         
         public var dimmerColor: UIColor = UIColor(white: 0, alpha: 0.7)
         public var blurEffectAlpha: CGFloat = 0
-        public var blurEffectStyle: UIBlurEffectStyle = .Dark
+        public var blurEffectStyle: UIBlurEffectStyle = .dark
         
-        public var animateInDuration: NSTimeInterval = 0.25
-        public var animateOutDuration: NSTimeInterval = 0.25
+        public var animateInDuration: TimeInterval = 0.25
+        public var animateOutDuration: TimeInterval = 0.25
         
         public var parallax: UIOffset = UIOffset(horizontal: 15, vertical: 15)
         
@@ -46,7 +46,7 @@ public class NovaAlert {
         public var actionHeight: CGFloat = 45
         
         public var separatorColor: UIColor = UIColor(white: 0.5, alpha: 0.5)
-        public var separatorWidth: CGFloat = 1 / UIScreen.mainScreen().scale
+        public var separatorWidth: CGFloat = 1 / UIScreen.main.scale
     }
     
     public struct Behavior {
@@ -54,17 +54,17 @@ public class NovaAlert {
     }
     
     // Adjust the static Default Theme
-    public static var DefaultTheme: Theme = Theme()
-    public static var DefaultBehavior: Behavior = Behavior()
+    open static var DefaultTheme: Theme = Theme()
+    open static var DefaultBehavior: Behavior = Behavior()
     
     public enum ActionType {
-        case Default
-        case Cancel
-        case Destructive
+        case `default`
+        case cancel
+        case destructive
     }
     
-    public var theme: Theme = DefaultTheme
-    public var behavior: Behavior = DefaultBehavior
+    open var theme: Theme = DefaultTheme
+    open var behavior: Behavior = DefaultBehavior
     
     public struct Action {
         var title: String
@@ -72,11 +72,11 @@ public class NovaAlert {
         var handler: (() -> (Void))?
     }
     
-    public var title: String?
-    public var message: String?
-    private var actions: [Action] = []
+    open var title: String?
+    open var message: String?
+    fileprivate var actions: [Action] = []
     
-    public let viewController = NovaAlertViewController()
+    open let viewController = NovaAlertViewController()
     
     public init(title: String? = nil, message: String? = nil) {
         self.title = title
@@ -85,21 +85,21 @@ public class NovaAlert {
         viewController.alert = self
     }
     
-    public func addAction(title: String, type: ActionType = .Default, handler: (() -> (Void))? = nil) -> NovaAlert {
+    @discardableResult open func addAction(_ title: String, type: ActionType = .default, handler: (() -> (Void))? = nil) -> NovaAlert {
         actions.append(Action(title: title, type: type, handler: handler))
         return self
     }
     
-    public func show(animated: Bool = true) -> NovaAlert {
+    @discardableResult open func show(_ animated: Bool = true) -> NovaAlert {
         // Mimic the current Status Bar Style for this UIWindow / View Controller
-        statusBarStyle = UIApplication.sharedApplication().keyWindow?.rootViewController?.preferredStatusBarStyle() ?? .Default
+        statusBarStyle = UIApplication.shared.keyWindow?.rootViewController?.preferredStatusBarStyle ?? .default
         
         // Create the Alert Window if necessary
         if alertWindow == nil {
-            alertWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+            alertWindow = UIWindow(frame: UIScreen.main.bounds)
             // Put the window under the Status Bar so it's no blurred out
             alertWindow?.windowLevel = UIWindowLevelStatusBar - 1
-            alertWindow?.tintColor = UIApplication.sharedApplication().delegate?.window??.tintColor
+            alertWindow?.tintColor = UIApplication.shared.delegate?.window??.tintColor
             alertWindow?.rootViewController = viewController
             alertWindow?.makeKeyAndVisible()
         }
@@ -107,7 +107,7 @@ public class NovaAlert {
         return self
     }
     
-    public func hide(animated: Bool = true, completion: (() -> ())? = nil) -> NovaAlert {
+    @discardableResult open func hide(_ animated: Bool = true, completion: (() -> ())? = nil) -> NovaAlert {
         viewController.hide(animated, completion: completion)
         return self
     }
@@ -115,11 +115,11 @@ public class NovaAlert {
     
     
     // Private
-    private var alertWindow: UIWindow?
-    private var statusBarStyle: UIStatusBarStyle = .Default
+    fileprivate var alertWindow: UIWindow?
+    fileprivate var statusBarStyle: UIStatusBarStyle = .default
     
-    private func destroy() {
-        alertWindow?.hidden = true
+    fileprivate func destroy() {
+        alertWindow?.isHidden = true
         alertWindow?.rootViewController = nil
         alertWindow = nil
         viewController.alert = nil
@@ -133,27 +133,27 @@ public class NovaAlert {
 
 
 
-public class NovaAlertViewController: UIViewController {
+open class NovaAlertViewController: UIViewController {
 
-    private var alert: NovaAlert!
+    fileprivate var alert: NovaAlert!
     
-    public let dimmerView = UIView()
-    public let alertView = NovaAlertView()
+    open let dimmerView = UIView()
+    open let alertView = NovaAlertView()
     
-    private let tapGestureRecognizer = UITapGestureRecognizer()
+    fileprivate let tapGestureRecognizer = UITapGestureRecognizer()
     
     init() {
         super.init(nibName: nil, bundle: nil)
         
-        modalPresentationStyle = .None
-        modalTransitionStyle = .CrossDissolve
+        modalPresentationStyle = .none
+        modalTransitionStyle = .crossDissolve
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("not implemented")
     }
     
-    public override func loadView() {
+    open override func loadView() {
         view = UIView(frame: CGRect.zero)
         view.addSubview(dimmerView)
         view.addSubview(alertView)
@@ -162,8 +162,8 @@ public class NovaAlertViewController: UIViewController {
         view.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    private var alertViewContraints: ConstraintGroup?
-    public override func viewDidLoad() {
+    fileprivate var alertViewContraints: ConstraintGroup?
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         dimmerView.backgroundColor = alert.theme.dimmerColor
@@ -197,34 +197,34 @@ public class NovaAlertViewController: UIViewController {
         alertView.addActions(alert.actions, theme: alert.theme)
         
         for actionButton in alertView.actionButtons {
-            actionButton.addTarget(self, action: #selector(NovaAlertViewController.actionButtonHandler(_:)), forControlEvents: .TouchUpInside)
+            actionButton.addTarget(self, action: #selector(NovaAlertViewController.actionButtonHandler(_:)), for: .touchUpInside)
         }
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
     }
     
-    public override func viewDidAppear(animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         constrain(view, alertView, replace: alertViewContraints!) { view, alertView in
             alertView.center == view.center
         }
-        UIView.animateWithDuration(alert.theme.animateInDuration) {
+        UIView.animate(withDuration: alert.theme.animateInDuration, animations: {
             self.dimmerView.alpha = 1
             self.view.layoutIfNeeded()
-        }
+        }) 
     }
 
-    func hide(animated: Bool = true, completion: (() -> ())? = nil) {
+    func hide(_ animated: Bool = true, completion: (() -> ())? = nil) {
         if animated {
-            UIView.animateWithDuration(alert.theme.animateOutDuration, animations: {
+            UIView.animate(withDuration: alert.theme.animateOutDuration, animations: {
                 self.view.alpha = 0
-            }) { finished in
+            }, completion: { finished in
                 self.alert.destroy()
                 completion?()
-            }
+            }) 
         } else {
             alert.destroy()
             completion?()
@@ -232,17 +232,17 @@ public class NovaAlertViewController: UIViewController {
     }
     
     
-    func tapGestureHandler(gesture: UITapGestureRecognizer) {
-        if alert.behavior.tapOutsideToClose && alertView.hitTest(gesture.locationInView(alertView), withEvent: nil) == nil {
+    func tapGestureHandler(_ gesture: UITapGestureRecognizer) {
+        if alert.behavior.tapOutsideToClose && alertView.hitTest(gesture.location(in: alertView), with: nil) == nil {
             hide()
         }
     }
     
-    public override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return alert.statusBarStyle ?? .Default
+    open override var preferredStatusBarStyle : UIStatusBarStyle {
+        return alert.statusBarStyle ?? .default
     }
     
-    func actionButtonHandler(button: NovaAlertActionButton) {
+    func actionButtonHandler(_ button: NovaAlertActionButton) {
         button.action.handler?()
         hide()
     }
@@ -254,9 +254,9 @@ public class NovaAlertViewController: UIViewController {
 
 
 
-public class NovaAlertActionButton: UIButton {
+open class NovaAlertActionButton: UIButton {
 
-    private var action: NovaAlert.Action
+    fileprivate var action: NovaAlert.Action
     init(action: NovaAlert.Action) {
         self.action = action
         super.init(frame: CGRect.zero)
@@ -268,14 +268,14 @@ public class NovaAlertActionButton: UIButton {
     
 }
 
-public class NovaAlertView: UIView {
+open class NovaAlertView: UIView {
     
-    private let titleLabel = UILabel(frame: CGRect.zero)
-    private let messageLabel = UILabel(frame: CGRect.zero)
-    private let separator = UIView(frame: CGRect.zero)
-    private let actionsContainer = UIView(frame: CGRect.zero)
-    private let actionsSeparator = UIView(frame: CGRect.zero)
-    private lazy var backgroundView = { UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight)) }()
+    fileprivate let titleLabel = UILabel(frame: CGRect.zero)
+    fileprivate let messageLabel = UILabel(frame: CGRect.zero)
+    fileprivate let separator = UIView(frame: CGRect.zero)
+    fileprivate let actionsContainer = UIView(frame: CGRect.zero)
+    fileprivate let actionsSeparator = UIView(frame: CGRect.zero)
+    fileprivate lazy var backgroundView = { UIVisualEffectView(effect: UIBlurEffect(style: .extraLight)) }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -288,8 +288,8 @@ public class NovaAlertView: UIView {
         addSubview(messageLabel)
         addSubview(actionsContainer)
         
-        titleLabel.textAlignment = .Center
-        messageLabel.textAlignment = .Center
+        titleLabel.textAlignment = .center
+        messageLabel.textAlignment = .center
         
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.minimumScaleFactor = 0.5
@@ -297,11 +297,11 @@ public class NovaAlertView: UIView {
         messageLabel.numberOfLines = 0
     }
     
-    internal func applyTheme(theme: NovaAlert.Theme) {
+    internal func applyTheme(_ theme: NovaAlert.Theme) {
         
         backgroundColor = theme.alertBackgroundColor
         if backgroundColor == nil {
-            insertSubview(backgroundView, atIndex: 0)
+            insertSubview(backgroundView, at: 0)
             
             constrain(backgroundView) { backgroundView in
                 backgroundView.edges == backgroundView.superview!.edges
@@ -323,10 +323,10 @@ public class NovaAlertView: UIView {
         do {
             let parallax = theme.parallax
             let group = UIMotionEffectGroup()
-            let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .TiltAlongHorizontalAxis)
+            let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
             horizontal.minimumRelativeValue = -parallax.horizontal
             horizontal.maximumRelativeValue = parallax.horizontal
-            let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .TiltAlongVerticalAxis)
+            let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
             vertical.minimumRelativeValue = -parallax.vertical
             vertical.maximumRelativeValue = parallax.vertical
             group.motionEffects = [horizontal, vertical]
@@ -355,33 +355,33 @@ public class NovaAlertView: UIView {
         }
     }
     
-    private var actionButtons: [UIButton] = []
-    private func addActions(actions: [NovaAlert.Action], theme: NovaAlert.Theme) {
+    fileprivate var actionButtons: [UIButton] = []
+    fileprivate func addActions(_ actions: [NovaAlert.Action], theme: NovaAlert.Theme) {
         for action in actions {
             let actionButton = NovaAlertActionButton(action: action)
-            actionButton.setTitle(action.title, forState: .Normal)
+            actionButton.setTitle(action.title, for: UIControlState())
             
             let actionTheme: NovaAlert.Theme.ActionTheme
             switch action.type {
-            case .Default:
+            case .default:
                 actionTheme = theme.actionDefault
-            case .Cancel:
+            case .cancel:
                 actionTheme = theme.actionCancel
-            case .Destructive:
+            case .destructive:
                 actionTheme = theme.actionDestructive
             }
             
             actionButton.titleLabel?.font = actionTheme.font
             if let color = actionTheme.textColor {
-                actionButton.setTitleColor(color, forState: .Normal)
+                actionButton.setTitleColor(color, for: UIControlState())
             } else {
-                actionButton.setTitleColor(tintColor, forState: .Normal)
+                actionButton.setTitleColor(tintColor, for: UIControlState())
             }
             if let color = actionTheme.color {
-                actionButton.setBackgroundColor(color, forState: .Normal)
+                actionButton.setBackgroundColor(color, forState: UIControlState())
             }
             if let color = actionTheme.highlightColor {
-                actionButton.setBackgroundColor(color, forState: .Highlighted)
+                actionButton.setBackgroundColor(color, forState: .highlighted)
             }
             
             actionButtons.append(actionButton)
