@@ -239,7 +239,7 @@ open class NovaAlertViewController: UIViewController {
     }
     
     open override var preferredStatusBarStyle : UIStatusBarStyle {
-        return alert.statusBarStyle ?? .default
+        return alert.statusBarStyle
     }
     
     func actionButtonHandler(_ button: NovaAlertActionButton) {
