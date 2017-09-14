@@ -232,7 +232,7 @@ open class NovaAlertViewController: UIViewController {
     }
     
     
-    func tapGestureHandler(_ gesture: UITapGestureRecognizer) {
+    @objc func tapGestureHandler(_ gesture: UITapGestureRecognizer) {
         if alert.behavior.tapOutsideToClose && alertView.hitTest(gesture.location(in: alertView), with: nil) == nil {
             hide()
         }
@@ -242,7 +242,7 @@ open class NovaAlertViewController: UIViewController {
         return alert.statusBarStyle
     }
     
-    func actionButtonHandler(_ button: NovaAlertActionButton) {
+    @objc func actionButtonHandler(_ button: NovaAlertActionButton) {
         button.action.handler?()
         hide()
     }
