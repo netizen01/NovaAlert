@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" align="right" vspace="2px">
 </a>
 
-Using Cartography, you can set up your Layout constraints in declarative code and without any stringly typing!
+Using Cartography, you can set up your Auto Layout constraints in declarative code and without any stringly typing!
 
 In short, it allows you to replace this:
 
@@ -35,6 +35,8 @@ constrain(button1, button2) { button1, button2 in
 ```
 
 If you end up using Cartography in production, I'd love to hear from you. You can reach me through [Twitter] or [email].
+
+If you need Swift 2.x support, then please use `0.7.0` and below.
 
 ## Usage
 
@@ -227,6 +229,11 @@ constrain(view) { view in
 
 Read the documentation [here](http://robb.github.io/Cartography/). For more information, see the [gh-pages](https://github.com/robb/Cartography/tree/gh-pages) branch.
 
+## Versioning
+
+For *Swift 3.x*: 1.1.0
+For *Swift 4.x*: 2.0.0
+
 ## Support
 
 Please, don't hesitate to [file an
@@ -234,11 +241,12 @@ issue](https://github.com/robb/Cartography/issues/new) if you have questions.
 
 ## About Cartography
 
-Cartography was built by [Robb Böhnke][me] and was inspired by the excellent
+Cartography was built by [Robb Böhnke][me], is maintained by [Orta Therox][ot] and was inspired by the excellent
 [FLKAutoLayout] by [Florian Kugler][florian].
 
 [flkautolayout]: https://github.com/floriankugler/FLKAutoLayout
 [florian]:       https://github.com/floriankugler
 [me]:            http://robb.is
-[twitter]:       https://twitter.com/ceterum_censeo
+[twitter]:       https://twitter.com/dlx
 [email]:         mailto:robb@robb.is
+[ot]:            https://github.com/orta

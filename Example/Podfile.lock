@@ -1,9 +1,9 @@
 PODS:
-  - Cartography (0.6.0)
-  - NovaAlert (0.1):
-    - Cartography (~> 0.6)
-    - NovaCore (~> 0.1)
-  - NovaCore (0.1)
+  - Cartography (2.0.0)
+  - NovaAlert (0.5):
+    - Cartography
+    - NovaCore
+  - NovaCore (0.5)
 
 DEPENDENCIES:
   - NovaAlert (from `../`)
@@ -13,10 +13,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
-  NovaAlert: 9c167fd301ba31904d395cbbcac83be8d305601e
-  NovaCore: 6c2ffd04ca4b6d08740851209a825987a6bead1b
+  Cartography: d295eb25ab54bb57eecd8c2f04e9648c850f1281
+  NovaAlert: aa8da9f70bdacc1a011f56fa86316a2d2539b47a
+  NovaCore: c24c0cef6c425e1db998e93b18d2287627d7449d
 
-PODFILE CHECKSUM: e1fc352e4ce05a5b21fe5769cc2ed5d1c634e055
+PODFILE CHECKSUM: fa1f069fd93eb0bfdf4185f7a479152d7c1210a6
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.3.1

@@ -6,14 +6,18 @@
 //  Copyright (c) 2014 Robert Böhnke. All rights reserved.
 //
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 import UIKit
+
+public typealias LayoutAttribute = NSLayoutAttribute
 #else
 import AppKit
+
+public typealias LayoutAttribute = NSLayoutConstraint.Attribute
 #endif
 
 public protocol Property {
-    var attribute: NSLayoutAttribute { get }
+    var attribute: LayoutAttribute { get }
     var context: Context { get }
     var view: View { get }
 }
@@ -32,7 +36,7 @@ public protocol NumericalEquality : Property { }
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
-public func == (lhs: NumericalEquality, rhs: CGFloat) -> NSLayoutConstraint {
+@discardableResult public func == (lhs: NumericalEquality, rhs: CGFloat) -> NSLayoutConstraint {
     return lhs.context.addConstraint(lhs, coefficients: Coefficients(1, rhs))
 }
 
@@ -48,8 +52,8 @@ public protocol RelativeEquality : Property { }
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
-public func == <P: RelativeEquality>(lhs: P, rhs: Expression<P>) -> NSLayoutConstraint {
-    return lhs.context.addConstraint(lhs, coefficients: rhs.coefficients[0], to: rhs.value)
+@discardableResult public func == <P: RelativeEquality>(lhs: P, rhs: Expression<P>) -> NSLayoutConstraint {
+    return lhs.context.addConstraint(lhs, to: rhs.value, coefficients: rhs.coefficients[0])
 }
 
 /// Declares a property equal to another property.
@@ -58,7 +62,7 @@ public func == <P: RelativeEquality>(lhs: P, rhs: Expression<P>) -> NSLayoutCons
 ///             `translatesAutoresizingMaskIntoConstraints` set to `false`.
 /// - parameter rhs: The other property.
 ///
-public func == <P: RelativeEquality>(lhs: P, rhs: P) -> NSLayoutConstraint {
+@discardableResult public func == <P: RelativeEquality>(lhs: P, rhs: P) -> NSLayoutConstraint {
     return lhs.context.addConstraint(lhs, to: rhs)
 }
 
@@ -76,8 +80,8 @@ public protocol NumericalInequality : Property { }
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
-public func <= (lhs: NumericalInequality, rhs: CGFloat) -> NSLayoutConstraint {
-    return lhs.context.addConstraint(lhs, coefficients: Coefficients(1, rhs), relation: NSLayoutRelation.LessThanOrEqual)
+@discardableResult public func <= (lhs: NumericalInequality, rhs: CGFloat) -> NSLayoutConstraint {
+    return lhs.context.addConstraint(lhs, coefficients: Coefficients(1, rhs), relation: .lessThanOrEqual)
 }
 
 /// Declares a property greater than or equal to a numerical constant.
@@ -88,8 +92,8 @@ public func <= (lhs: NumericalInequality, rhs: CGFloat) -> NSLayoutConstraint {
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
-public func >= (lhs: NumericalInequality, rhs: CGFloat) -> NSLayoutConstraint {
-    return lhs.context.addConstraint(lhs, coefficients: Coefficients(1, rhs), relation: NSLayoutRelation.GreaterThanOrEqual)
+@discardableResult public func >= (lhs: NumericalInequality, rhs: CGFloat) -> NSLayoutConstraint {
+    return lhs.context.addConstraint(lhs, coefficients: Coefficients(1, rhs), relation: .greaterThanOrEqual)
 }
 
 /// Properties conforming to this protocol can use the `<=` and `>=` operators
@@ -104,8 +108,8 @@ public protocol RelativeInequality : Property { }
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
-public func <= <P: RelativeInequality>(lhs: P, rhs: P) -> NSLayoutConstraint {
-    return lhs.context.addConstraint(lhs, to: rhs, relation: NSLayoutRelation.LessThanOrEqual)
+@discardableResult public func <= <P: RelativeInequality>(lhs: P, rhs: P) -> NSLayoutConstraint {
+    return lhs.context.addConstraint(lhs, to: rhs, relation: .lessThanOrEqual)
 }
 
 /// Declares a property greater than or equal to another property.
@@ -116,8 +120,8 @@ public func <= <P: RelativeInequality>(lhs: P, rhs: P) -> NSLayoutConstraint {
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
-public func >= <P: RelativeInequality>(lhs: P, rhs: P) -> NSLayoutConstraint {
-    return lhs.context.addConstraint(lhs, to: rhs, relation: NSLayoutRelation.GreaterThanOrEqual)
+@discardableResult public func >= <P: RelativeInequality>(lhs: P, rhs: P) -> NSLayoutConstraint {
+    return lhs.context.addConstraint(lhs, to: rhs, relation: .greaterThanOrEqual)
 }
 
 /// Declares a property less than or equal to the result of an expression.
@@ -128,8 +132,8 @@ public func >= <P: RelativeInequality>(lhs: P, rhs: P) -> NSLayoutConstraint {
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
-public func <= <P: RelativeInequality>(lhs: P, rhs: Expression<P>) -> NSLayoutConstraint {
-    return lhs.context.addConstraint(lhs, coefficients: rhs.coefficients[0], to: rhs.value, relation: NSLayoutRelation.LessThanOrEqual)
+@discardableResult public func <= <P: RelativeInequality>(lhs: P, rhs: Expression<P>) -> NSLayoutConstraint {
+    return lhs.context.addConstraint(lhs, to: rhs.value, coefficients: rhs.coefficients[0], relation: .lessThanOrEqual)
 }
 
 /// Declares a property greater than or equal to the result of an expression.
@@ -140,11 +144,11 @@ public func <= <P: RelativeInequality>(lhs: P, rhs: Expression<P>) -> NSLayoutCo
 ///
 /// - returns: An `NSLayoutConstraint`.
 ///
-public func >= <P: RelativeInequality>(lhs: P, rhs: Expression<P>) -> NSLayoutConstraint {
-    return lhs.context.addConstraint(lhs, coefficients: rhs.coefficients[0], to: rhs.value, relation: NSLayoutRelation.GreaterThanOrEqual)
+@discardableResult public func >= <P: RelativeInequality>(lhs: P, rhs: Expression<P>) -> NSLayoutConstraint {
+    return lhs.context.addConstraint(lhs, to: rhs.value, coefficients: rhs.coefficients[0], relation: .greaterThanOrEqual)
 }
 
-// Mark: Addition
+// MARK: Addition
 
 public protocol Addition : Property { }
 
@@ -180,6 +184,17 @@ public func - <P: Addition>(lhs: Expression<P>, rhs: CGFloat) -> Expression<P> {
     return rhs - lhs
 }
 
+#if os(iOS) || os(tvOS)
+
+    public func + (lhs: LayoutSupport, c : CGFloat) -> Expression<LayoutSupport> {
+        return Expression<LayoutSupport>(lhs, [Coefficients(1, c)])
+    }
+
+    public func - (lhs: LayoutSupport, c : CGFloat) -> Expression<LayoutSupport> {
+        return lhs + (-c)
+    }
+
+#endif
 // MARK: Multiplication
 
 public protocol Multiplication : Property { }
