@@ -383,6 +383,7 @@ open class NovaAlertView: UIView {
             if let color = actionTheme.highlightColor {
                 actionButton.setBackgroundColor(color, forState: .highlighted)
             }
+            actionButton.titleLabel?.lineBreakMode = .byWordWrapping
             
             actionButtons.append(actionButton)
             actionsContainer.addSubview(actionButton)
