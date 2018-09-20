@@ -15,7 +15,7 @@ open class NovaAlert {
             public var color: UIColor? = nil
             public var highlightColor: UIColor? = UIColor(white: 0.5, alpha: 0.5)
             public var textColor: UIColor? = nil
-            public var font: UIFont = .preferredFont(forTextStyle: UIFontTextStyle.body)
+            public var font: UIFont = .preferredFont(forTextStyle: UIFont.TextStyle.body)
         }
         
         public var alertBackgroundColor: UIColor? = nil
@@ -24,15 +24,15 @@ open class NovaAlert {
         public var alertTextPadding: UIEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         public var textSpacing: CGFloat = 12
         
-        public var titleFont: UIFont = .preferredFont(forTextStyle: UIFontTextStyle.headline)
-        public var messageFont: UIFont = .preferredFont(forTextStyle: UIFontTextStyle.body)
+        public var titleFont: UIFont = .preferredFont(forTextStyle: UIFont.TextStyle.headline)
+        public var messageFont: UIFont = .preferredFont(forTextStyle: UIFont.TextStyle.body)
         
         public var titleColor: UIColor = .black
         public var messageColor: UIColor = .black
         
         public var dimmerColor: UIColor = UIColor(white: 0, alpha: 0.7)
         public var blurEffectAlpha: CGFloat = 0
-        public var blurEffectStyle: UIBlurEffectStyle = .dark
+        public var blurEffectStyle: UIBlurEffect.Style = .dark
         
         public var animateInDuration: TimeInterval = 0.25
         public var animateOutDuration: TimeInterval = 0.25
@@ -98,7 +98,7 @@ open class NovaAlert {
         if alertWindow == nil {
             alertWindow = UIWindow(frame: UIScreen.main.bounds)
             // Put the window under the Status Bar so it's no blurred out
-            alertWindow?.windowLevel = UIWindowLevelStatusBar - 1
+            alertWindow?.windowLevel = UIWindow.Level.statusBar - 1
             alertWindow?.tintColor = UIApplication.shared.delegate?.window??.tintColor
             alertWindow?.rootViewController = viewController
             alertWindow?.makeKeyAndVisible()
@@ -359,7 +359,7 @@ open class NovaAlertView: UIView {
     fileprivate func addActions(_ actions: [NovaAlert.Action], theme: NovaAlert.Theme) {
         for action in actions {
             let actionButton = NovaAlertActionButton(action: action)
-            actionButton.setTitle(action.title, for: UIControlState())
+            actionButton.setTitle(action.title, for: .normal)
             
             let actionTheme: NovaAlert.Theme.ActionTheme
             switch action.type {
@@ -373,12 +373,12 @@ open class NovaAlertView: UIView {
             
             actionButton.titleLabel?.font = actionTheme.font
             if let color = actionTheme.textColor {
-                actionButton.setTitleColor(color, for: UIControlState())
+                actionButton.setTitleColor(color, for: .normal)
             } else {
-                actionButton.setTitleColor(tintColor, for: UIControlState())
+                actionButton.setTitleColor(tintColor, for: .normal)
             }
             if let color = actionTheme.color {
-                actionButton.setBackgroundColor(color, forState: UIControlState())
+                actionButton.setBackgroundColor(color, forState: .normal)
             }
             if let color = actionTheme.highlightColor {
                 actionButton.setBackgroundColor(color, forState: .highlighted)
