@@ -18,9 +18,7 @@
     "tag": "0.5"
   },
   "source_files": "Source/**/*.swift",
-  "pod_target_xcconfig": {
-    "SWIFT_VERSION": "4.0"
-  },
+  "swift_version": "4.2",
   "dependencies": {
     "NovaCore": [
 

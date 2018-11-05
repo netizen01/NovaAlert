@@ -54,8 +54,8 @@ open class NovaAlert {
     }
     
     // Adjust the static Default Theme
-    open static var DefaultTheme: Theme = Theme()
-    open static var DefaultBehavior: Behavior = Behavior()
+    public static var DefaultTheme: Theme = Theme()
+    public static var DefaultBehavior: Behavior = Behavior()
     
     public enum ActionType {
         case `default`
@@ -76,7 +76,7 @@ open class NovaAlert {
     open var message: String?
     fileprivate var actions: [Action] = []
     
-    open let viewController = NovaAlertViewController()
+    public let viewController = NovaAlertViewController()
     
     public init(title: String? = nil, message: String? = nil) {
         self.title = title
@@ -137,8 +137,8 @@ open class NovaAlertViewController: UIViewController {
 
     fileprivate var alert: NovaAlert!
     
-    open let dimmerView = UIView()
-    open let alertView = NovaAlertView()
+    public let dimmerView = UIView()
+    public let alertView = NovaAlertView()
     
     fileprivate let tapGestureRecognizer = UITapGestureRecognizer()
     

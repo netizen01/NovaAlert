@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1BBC3810F796BE5DC2D5718F /* Pods_NovaAlertDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5185620B817A42719D46C95 /* Pods_NovaAlertDemo.framework */; };
+		5E7A44E8DE978AC4D38B53CC /* Pods_NovaAlertDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB513CC2A26BA10970D03F1 /* Pods_NovaAlertDemo.framework */; };
 		8DF48DD11D079E9800BBFA85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF48DD01D079E9800BBFA85 /* AppDelegate.swift */; };
 		8DF48DD31D079E9800BBFA85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF48DD21D079E9800BBFA85 /* ViewController.swift */; };
 		8DF48DD61D079E9800BBFA85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DF48DD41D079E9800BBFA85 /* Main.storyboard */; };
@@ -16,7 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		220E8CF1A2009BAAB8F23F84 /* Pods-NovaAlertDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaAlertDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NovaAlertDemo/Pods-NovaAlertDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		2EB513CC2A26BA10970D03F1 /* Pods_NovaAlertDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NovaAlertDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74B38526B6114AFA53BCB31E /* Pods-NovaAlertDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaAlertDemo.release.xcconfig"; path = "Target Support Files/Pods-NovaAlertDemo/Pods-NovaAlertDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8DF48DCD1D079E9800BBFA85 /* NovaAlertDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NovaAlertDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DF48DD01D079E9800BBFA85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DF48DD21D079E9800BBFA85 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,8 +25,7 @@
 		8DF48DD71D079E9800BBFA85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DF48DDA1D079E9800BBFA85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8DF48DDC1D079E9800BBFA85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5185620B817A42719D46C95 /* Pods_NovaAlertDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NovaAlertDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B90C313AD85881578AE9217F /* Pods-NovaAlertDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaAlertDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NovaAlertDemo/Pods-NovaAlertDemo.release.xcconfig"; sourceTree = "<group>"; };
+		C693ABF6DE11FE3071E842BB /* Pods-NovaAlertDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaAlertDemo.debug.xcconfig"; path = "Target Support Files/Pods-NovaAlertDemo/Pods-NovaAlertDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +33,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BBC3810F796BE5DC2D5718F /* Pods_NovaAlertDemo.framework in Frameworks */,
+				5E7A44E8DE978AC4D38B53CC /* Pods_NovaAlertDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6B7FA39C17B4885F10312197 /* Frameworks */ = {
+		5B053934BB4563E0873F54A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A5185620B817A42719D46C95 /* Pods_NovaAlertDemo.framework */,
+				2EB513CC2A26BA10970D03F1 /* Pods_NovaAlertDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -53,8 +53,8 @@
 			children = (
 				8DF48DCF1D079E9800BBFA85 /* NovaAlertDemo */,
 				8DF48DCE1D079E9800BBFA85 /* Products */,
-				F50CC4624DF5B99DF63820EC /* Pods */,
-				6B7FA39C17B4885F10312197 /* Frameworks */,
+				F5643D974041E55F8E19C257 /* Pods */,
+				5B053934BB4563E0873F54A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,13 +79,14 @@
 			path = NovaAlertDemo;
 			sourceTree = "<group>";
 		};
-		F50CC4624DF5B99DF63820EC /* Pods */ = {
+		F5643D974041E55F8E19C257 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				220E8CF1A2009BAAB8F23F84 /* Pods-NovaAlertDemo.debug.xcconfig */,
-				B90C313AD85881578AE9217F /* Pods-NovaAlertDemo.release.xcconfig */,
+				C693ABF6DE11FE3071E842BB /* Pods-NovaAlertDemo.debug.xcconfig */,
+				74B38526B6114AFA53BCB31E /* Pods-NovaAlertDemo.release.xcconfig */,
 			);
 			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,12 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8DF48DDF1D079E9800BBFA85 /* Build configuration list for PBXNativeTarget "NovaAlertDemo" */;
 			buildPhases = (
-				A7CD9EF0F12A78426EE64864 /* [CP] Check Pods Manifest.lock */,
+				E610B3E3AEFED486CB6F3FF9 /* [CP] Check Pods Manifest.lock */,
 				8DF48DC91D079E9800BBFA85 /* Sources */,
 				8DF48DCA1D079E9800BBFA85 /* Frameworks */,
 				8DF48DCB1D079E9800BBFA85 /* Resources */,
-				CFB684E6BB77F5B1520D2E9F /* [CP] Embed Pods Frameworks */,
-				B1975FB9C3E07E69E82C35B5 /* [CP] Copy Pods Resources */,
+				FE51179A33B623A14ABD64B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -118,11 +118,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Example;
 				TargetAttributes = {
 					8DF48DCC1D079E9800BBFA85 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -159,16 +160,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A7CD9EF0F12A78426EE64864 /* [CP] Check Pods Manifest.lock */ = {
+		E610B3E3AEFED486CB6F3FF9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-NovaAlertDemo-checkManifestLockResult.txt",
 			);
@@ -177,33 +182,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B1975FB9C3E07E69E82C35B5 /* [CP] Copy Pods Resources */ = {
+		FE51179A33B623A14ABD64B8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NovaAlertDemo/Pods-NovaAlertDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CFB684E6BB77F5B1520D2E9F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NovaAlertDemo/Pods-NovaAlertDemo-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-NovaAlertDemo/Pods-NovaAlertDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
 				"${BUILT_PRODUCTS_DIR}/NovaAlert/NovaAlert.framework",
 				"${BUILT_PRODUCTS_DIR}/NovaCore/NovaCore.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NovaAlert.framework",
@@ -211,7 +205,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NovaAlertDemo/Pods-NovaAlertDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NovaAlertDemo/Pods-NovaAlertDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -261,12 +255,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -314,12 +310,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -350,7 +348,7 @@
 		};
 		8DF48DE01D079E9800BBFA85 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 220E8CF1A2009BAAB8F23F84 /* Pods-NovaAlertDemo.debug.xcconfig */;
+			baseConfigurationReference = C693ABF6DE11FE3071E842BB /* Pods-NovaAlertDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -360,13 +358,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.NovaAlertDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		8DF48DE11D079E9800BBFA85 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B90C313AD85881578AE9217F /* Pods-NovaAlertDemo.release.xcconfig */;
+			baseConfigurationReference = 74B38526B6114AFA53BCB31E /* Pods-NovaAlertDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -376,7 +374,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.NovaAlertDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
