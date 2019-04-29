@@ -322,15 +322,17 @@ open class NovaAlertView: UIView {
         
         do {
             let parallax = theme.parallax
-            let group = UIMotionEffectGroup()
-            let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-            horizontal.minimumRelativeValue = -parallax.horizontal
-            horizontal.maximumRelativeValue = parallax.horizontal
-            let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-            vertical.minimumRelativeValue = -parallax.vertical
-            vertical.maximumRelativeValue = parallax.vertical
-            group.motionEffects = [horizontal, vertical]
-            addMotionEffect(group)
+            if parallax.horizontal != 0 && parallax.vertical != 0 {
+                let group = UIMotionEffectGroup()
+                let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+                horizontal.minimumRelativeValue = -parallax.horizontal
+                horizontal.maximumRelativeValue = parallax.horizontal
+                let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+                vertical.minimumRelativeValue = -parallax.vertical
+                vertical.maximumRelativeValue = parallax.vertical
+                group.motionEffects = [horizontal, vertical]
+                addMotionEffect(group)
+            }
         }
         
         constrain(titleLabel, messageLabel, separator, actionsContainer, self) { titleLabel, messageLabel, separator, actionsContainer, view in
