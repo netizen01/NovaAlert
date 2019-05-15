@@ -243,8 +243,9 @@ open class NovaAlertViewController: UIViewController {
     }
     
     @objc func actionButtonHandler(_ button: NovaAlertActionButton) {
-        button.action.handler?()
-        hide()
+        hide() {
+            button.action.handler?()
+        }
     }
     
 }
