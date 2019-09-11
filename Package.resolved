@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Cartography",
+        "repositoryURL": "https://github.com/robb/Cartography",
+        "state": {
+          "branch": "master",
+          "revision": "dc7faa92eee04ef1b8dfcf0736d89e60d29817d9",
+          "version": null
+        }
+      },
+      {
+        "package": "NovaCore",
+        "repositoryURL": "https://github.com/netizen01/NovaCore",
+        "state": {
+          "branch": "master",
+          "revision": "3a63b2ebee41d01df928941fe818ba5651947d39",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

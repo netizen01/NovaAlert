@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
     spec.name                   = 'NovaAlert'
-    spec.version                = '0.8'
+    spec.version                = '0.9'
     spec.summary                = 'Another Alert Package. Because.'
 
     spec.homepage               = 'https://github.com/netizen01/NovaAlert'
@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
 
     spec.source                 = { :git => 'https://github.com/netizen01/NovaAlert.git',
                                     :tag => spec.version.to_s }
-    spec.source_files           = 'Source/**/*.swift'
+    spec.source_files           = 'Sources/**/*.swift'
     spec.swift_versions         = ['5.0']
     
     spec.dependency             'NovaCore'
